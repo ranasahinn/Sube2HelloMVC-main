@@ -1,0 +1,19 @@
+﻿@model Sube2.HelloMvc.Models.Ders
+@{
+    ViewBag.Title = "Yeni Ders Ekle";
+}
+
+<div class="container mt-5">
+    <h2>Yeni Ders Ekle</h2>
+    <form asp-action="AddDers" method="post">
+        <div class="form-group">
+            <label for="Dersad">Ders Adı</label>
+            <input type="text" class="form-control" id="Dersad" name="Dersad" required>
+        </div>
+        <div class="form-group">
+            <label for="Kredi">Kredi</label>
+            <input type="number" class="form-control" id="Kredi" name="Kredi" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>

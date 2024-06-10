@@ -1,0 +1,26 @@
+﻿@model Sube2.HelloMvc.Models.Ogrenci
+@{
+    ViewBag.Title = "Ders Ekle";
+    var dersler = ViewBag.Dersler as List<Sube2.HelloMvc.Models.Ders>;
+    var selectedDersler = ViewBag.SelectedDersler as List<int> ?? new List<int>();
+}
+
+<div class="container mt-5">
+    <h2>@Model.Ad @Model.Soyad için Ders Ekle</h2>
+    <form asp-action="AssignDers" method="post">
+        <div class="form-group">
+            <label for="selectedDersler">Dersler:</label>
+            <select id="selectedDersler" name="selectedDersler" class="form-control" multiple>
+                @foreach (var ders in dersler)
+                {
+                    <option value="@ders.Dersid" selected="@(selectedDersler.Contains(ders.Dersid) ? "selected" : null)">@ders.Dersad</option>
+                }
+            </select>
+        </div>
+        <input type="hidden" asp-for="OgrenciId" />
+        <button type="submit" class="btn btn-primary mt-3">Dersleri Ekle</button>
+    </form>
+</div>
+
+
+                    

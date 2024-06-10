@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Sube2.HelloMvc.Models.Ogrenci>
+@{
+    ViewData["Title"] = "Tüm Öğrencilerin Dersleri";
+}
+
+<div class="container mt-5">
+    <h2>Tüm Öğrencilerin Dersleri</h2>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Öğrenci Numarası</th>
+                <th>Öğrenci Adı</th>
+                <th>Ders Adı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ogrenci in Model)
+            {
+                foreach (var ders in ogrenci.Dersler)
+                {
+                    <tr>
+                        <td>@ogrenci.Numara</td>
+                        <td>@ogrenci.Ad @ogrenci.Soyad</td>
+                        <td>@ders.Dersad</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

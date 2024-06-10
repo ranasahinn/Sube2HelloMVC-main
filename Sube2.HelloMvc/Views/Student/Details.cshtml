@@ -1,0 +1,42 @@
+﻿@model Sube2.HelloMvc.Models.Ogrenci
+@{
+    ViewBag.Title = "Öğrenci Detayları";
+    Layout = "_Layout";
+}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h2>@Model.Ad @Model.Soyad Öğrenci Detayları</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Numara:</strong> @Model.Numara</p>
+            <h3>Dersler:</h3>
+            @if (Model.Dersler != null && Model.Dersler.Any())
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Ders Adı</th>
+                            <th>Kredi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ders in Model.Dersler)
+                        {
+                            <tr>
+                                <td>@ders.Dersad</td>
+                                <td>@ders.Kredi</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Bu öğrenciye atanmış ders bulunmamaktadır.</p>
+            }
+            <a class="btn btn-primary" asp-action="Index">Geri Dön</a>
+        </div>
+    </div>
+</div>

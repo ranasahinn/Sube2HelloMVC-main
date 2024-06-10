@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Sube2.HelloMvc.Models.Ders>
+@{
+    ViewBag.Title = "Ders Listesi";
+}
+
+<div class="container mt-5">
+    <h2>Ders Listesi</h2>
+    <a class="btn btn-primary mb-3" asp-action="AddDers">Yeni Ders Ekle</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ders Adı</th>
+                <th>Kredi</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ders in Model)
+            {
+                <tr>
+                    <td>@ders.Dersad</td>
+                    <td>@ders.Kredi</td>
+                    <td>
+                        <a class="btn btn-sm btn-info" asp-action="EditDers" asp-route-id="@ders.Dersid">Düzenle</a>
+                        <a class="btn btn-sm btn-danger" asp-action="DeleteDers" asp-route-id="@ders.Dersid">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
